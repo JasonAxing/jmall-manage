@@ -14,7 +14,7 @@
                http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd
                 http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx.xsd
+        classpath:http://www.springframework.org/schema/tx/spring-tx.xsd
        ">
 
 	<context:property-placeholder location="classpath:dbConfig.properties" />

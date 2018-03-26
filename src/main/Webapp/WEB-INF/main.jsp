@@ -13,14 +13,14 @@
 <script type="text/javascript">
 	function b(){}
 </script>
-<title>硅谷商城</title>
+<title>金毛商城</title>
 </head>
 <body>
 	后台管理首页
 	<hr>
 	<a href="goto_spu.do" target="_blank">商品信息管理</a><br>
-	商品属性管理<br>
-	商品库存单元管理<br>
+	<a href="goto_attr.do" target="_blank">商品属性管理</a><br>
+	<a href="goto_sku.do" target="_blank">商品库存单元管理</a><br>
 	商品缓存管理<br>
 	
 </body>
