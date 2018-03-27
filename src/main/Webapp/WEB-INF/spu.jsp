@@ -8,7 +8,7 @@
 <html>
 <head>
 <base href="<%=basePath %>">
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 	$(function (){
@@ -54,5 +54,8 @@
 	<a href="javascript:goto_spu_add()">添加</a><br>
 	删除<br>
 	编辑<br>
+	
+	
+	
 </body>
 </html>

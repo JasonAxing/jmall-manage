@@ -15,7 +15,39 @@
 <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-	function b(){}
+	function add_tab(url,title){
+		$.post(url,function(data){
+			var b = $('#tt').tabs('exists',title);
+			if(!b){
+				$('#tt').tabs('add',{
+					title:title,
+					content:data,
+					closable:true,
+					tools:[{
+						iconCls:'icon-mini-refresh',
+						handler:function(){
+							alert('refresh');
+						}
+					}]
+				});
+			}else{
+				$('#tt').tabs('select',title);
+			}
+		})
+	}
+	function add_tab2(url,title){
+		$('#tt').tabs('add',{
+			title:title,
+			href:url,
+			closable:true,
+			tools:[{
+				iconCls:'icon-mini-refresh',
+				handler:function(){
+					alert('refresh');
+				}
+			}]
+		});
+	}
 </script>
 <title>金毛商城</title>
 </head>
@@ -23,10 +55,12 @@
 	<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px"><h2 style="font-family: Microsoft YaHei;">后台管理首页</h2></div>
 	<div data-options="region:'west',split:true,title:'West'" style="width:190px;padding:10px;">
 		<div class="easyui-accordion" style="width:160px;height:300px;">
-			<div title="商品信息管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
-				<a href="goto_spu.do" target="_blank">商品信息管理</a><br> 
-				<a href="goto_attr.do" target="_blank">商品属性管理</a><br>
-				<a href="goto_sku.do" target="_blank">商品库存单元管理</a><br>
+			<div title="商品信息管理" data-options="iconCls:'icon-ok'">
+				<ul>
+					<li><a href="javascript:add_tab('goto_spu.do','商品信息管理')" >商品信息管理</a></li>
+					<li><a href="javascript:add_tab('goto_attr.do','商品属性管理')" >商品属性管理</a></li>
+					<li><a href="javascript:add_tab('goto_sku.do','商品库存单元管理')" >商品库存单元管理</a></li>
+				</ul>
 			</div>
 			<div title="商品缓存管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
 				商品缓存管理<br>
@@ -35,7 +69,10 @@
 	</div>
 	<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">east region</div>
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
-	<div data-options="region:'center',title:'Center'"></div>
+	<div data-options="region:'center',title:'Center'">
+		<div id="tt" class="easyui-tabs">
+		</div>
+	</div>
 	
 	
 </body>
